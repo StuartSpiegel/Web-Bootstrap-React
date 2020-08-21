@@ -1,0 +1,96 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+@function color($key: "blue") {
+    @return map-get($colors, $key);
+  }
+  
+  @function theme-color($key: "primary") {
+    @return map-get($theme-colors, $key);
+  }
+  
+  @function gray($key: "100") {
+    @return map-get($grays, $key);
+  }
+
+  @function theme-color-level($color-name: "primary", $level: 0) {
+    $color: theme-color($color-name);
+    $color-base: if($level > 0, #000, #fff);
+    $level: abs($level);
+  
+    @return mix($color-base, $color, $level * $theme-color-interval);
+  }
+
+  .custom-element {
+    color: gray("100");
+    background-color: theme-color("dark");
+  }
+  @each $color, $value in $theme-colors {
+    .swatch-#{$color} {
+      color: color-yiq($value);
+    }
+  }
+  .custom-element {
+    color: color-yiq(theme-color("dark")); // returns `color: #fff`
+  }
+  /* 
+$spacer	1rem (default), or any value > 0	Specifies the default spacer value to programmatically generate our spacer utilities.
+$enable-rounded	true (default) or false	Enables predefined border-radius styles on various components.
+$enable-shadows	true or false (default)	Enables predefined box-shadow styles on various components.
+$enable-gradients	true or false (default)	Enables predefined gradients via background-image styles on various components.
+$enable-transitions	true (default) or false	Enables predefined transitions on various components.
+$enable-hover-media-query	true or false (default)	Deprecated
+$enable-grid-classes	true (default) or false	Enables the generation of CSS classes for the grid system (e.g., .container, .row, .col-md-1, etc.).
+$enable-caret	true (default) or false	Enables pseudo element caret on .dropdown-toggle.
+$enable-print-styles	true (default) or false	Enables styles for optimizing printing.
+
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  */
+
+  /*Modifiers */
+  // Generate alert modifier classes
+  @each $color, $value in $theme-colors {
+    .alert-#{$color} {
+      @include alert-variant(theme-color-level($color, -10), theme-color-level($color, -9), theme-color-level($color, 6));
+    }
+  }
+  
+  // Generate `.bg-*` color utilities
+  @each $color, $value in $theme-colors {
+    @include bg-variant('.bg-#{$color}', $value);
+  }
+
+  .custom-theme {
+    background-color: aqua;
+    background-blend-mode: color;
+  }
