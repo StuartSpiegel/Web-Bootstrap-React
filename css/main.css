@@ -4,7 +4,7 @@ CSS DOC 1: ref
 Author: Stuart Spiegel
 Date: 2/22/2019
 Updated: 6/25/2019
-Updated: 9/8/2019
+Updated: 9/25/2019
 */
 
 /*
@@ -48,13 +48,13 @@ menu {
 }
 
 h1, h2, h3 {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 42;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-size: 40pt;
 	text-align: center;
-	letter-spacing: 18pt;
+	letter-spacing: 2pt;
 	margin: 0;
 	padding: 0;
-	color: #333333;
+	color: #15bf86;
 }
 h4 {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -72,6 +72,26 @@ h5 {
 
 }
 
+/*Header 6 is designed for chess engine output and annotated PGN Files */
+h6 {
+text-emphasis: orange;
+text-align: center;
+word-wrap: inherit;
+-moz-text-decoration-color: #2DAAE4;
+text-decoration-color: #2DAAE4;
+color: #2DAAE4;
+}
+
+/*Header 7 is defined for social media title headers exclusively */
+h7 {
+text-emphasis: red;
+text-align: center;
+color: #2D2926;
+font-size: 22pt;
+align-content: center;
+align-self: center;
+align-items: center;
+}
 
 hr {
 margin: 17px 0 18px;
@@ -259,6 +279,7 @@ span:nth-child(6){
 	overflow-y: hidden;
 	padding: 1em -1em -1em 0em;
 	background: #333333;
+	font-family: 'Courier New', Courier, monospace;
 }
 
 
@@ -271,6 +292,7 @@ span:nth-child(6){
 		position: center;
 		overflow: hidden;
 		text-align: center;
+		font-family: 'Courier New', Courier, monospace;
 	}
 
 /*********************************************************************************/
@@ -306,7 +328,7 @@ span:nth-child(6){
 	#logo p
 	{
 		letter-spacing: 0.40em;
-		color: #FFF;
+		color: #15bf86;
 	}
 
 	#logo a
@@ -391,7 +413,7 @@ span:nth-child(6){
    }
    #menu li a:hover {
 	opacity: 1 !important;
-	background-color: #C4376B;
+	background-color: #2DAAE4;
    }
    #menu li a:hover:before {
 	right: 0;
@@ -400,26 +422,15 @@ span:nth-child(6){
 	bottom: 10%;
    }
 
-/** PAGE */
 
-#page
-{
-	position: relative;
-	overflow: auto;
-	align-content: center;
-	
-
-}
-
-
-/** CONTENT */
-
-#content
-{
-	float: left;
-	width: auto;
-	height: auto;
-	align-content: center;
+/** IFRAME STYLE */
+ iframe {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+	background-color: #2D2926;
+	display: block;
+	border-style: none;
 }
 
 /*********************************************************************************/
@@ -743,11 +754,3 @@ span:nth-child(6){
 	}
   }
   
-
-
-
-
-
-
-
-
